@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .api-form{
+            padding-top: 50px;
+        }
+        #url-input{
+            width: 450px;
+            height: 25px;
+        }
+        .api-method{
+            height: 30px;
+            width: 70px;
+        }
+        #send-button{
+            height: 30px;
+            width: 70px;
+            color: #ffffff;
+            background: #009ACD;
+        }
+        textarea{
+            width: 600px;
+            height: 300px;
+        }
+        #response-body-table{
+            /* 居中 */
+            margin:0 auto;
+        }
+    </style>
+
+</head>
+<body>
+    <!-- 这里的action的值一定要/开头，否则报错 -->
+    <form action="/apitest" method="get">
+{#        <label class="qwew">请求方法：</label>#}
+        <div class="api-form" align="center" >
+            <select class="api-method" name="request_method" >
+                <option>GET</option>
+                <option>POST</option>response
+            </select>
+            <input id="url-input" name="api_url" class="form-control" type="text" placeholder="输入接口完整地址" value=""/>
+            <input id="send-button" type="submit" value="发送请求" />
+        </div>
+    </form>
+
+    <table id="response-body-table">
+        <thead>
+            <tr>
+                <th>Response Body</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <textarea id="response-body">{{ response }}</textarea>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script type="text/javascript">
+        {#获取select对象#}
+        var selected=document.getElementsByClassName('api-method');
+        {#拿到选中项的索引#}
+        var index = selected.selectedIndex;
+        {#拿到选中想的option的text#}
+        var selected_api_method=selected.option[index].text;
+        {#拿到选中项options的value#}
+        {#selected.option[index].value;#}
+
+        {#function f() {#}
+             {#获取select对象#}
+        {#    var selected=document.getElementsByClassName('api-method');#}
+            {#拿到选中项的索引#}
+        {#    var index = selected.selectedIndex;#}
+            {#拿到选中想的option的text#}
+        {#    var selected_api_method=selected.option[index].text;#}
+        {#    alert(selected_api_method);#}
+        {#    alert('122')#}
+        {# }#}
+    </script>
+</body>
+</html>
